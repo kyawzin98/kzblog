@@ -8,7 +8,7 @@
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 <!-- My Fonts -->
-<link rel="stylesheet" href="http://weloveiconfonts.com/api/?family=brandico|entypo|fontelico|iconicfill|iconicstroke|maki|openwebicons|typicons|zocial">
+{{--<link rel="stylesheet" href="http://weloveiconfonts.com/api/?family=brandico|entypo|fontelico|iconicfill|iconicstroke|maki|openwebicons|typicons|zocial">--}}
 <!-- Icons -->
 <link href="{{asset('admin/assets/vendor/nucleo/css/nucleo.css')}}" rel="stylesheet">
 <link href="{{asset('admin/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
