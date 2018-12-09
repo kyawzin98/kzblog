@@ -125,7 +125,5 @@ a.text-lighter:focus {
 }
 
 .tag-category{
-    border: 2px solid red;
-    border-radius:5px ;
-    padding: 3px 5px;
+    padding: 7px;
 }
