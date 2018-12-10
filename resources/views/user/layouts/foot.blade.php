@@ -42,6 +42,6 @@
 <!-- Custom scripts for this template -->
 <script src="{{asset('user/js/clean-blog.min.js')}}"></script>
 
-@section('foot')
+@section('script')
 
 @show

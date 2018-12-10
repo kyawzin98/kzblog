@@ -17,6 +17,6 @@
 <link href="{{asset('user/css/clean-blog.css')}}" rel="stylesheet">
 <link rel="stylesheet" href="{{asset('user/css/style.css')}}">
 
-@section('head')
+@section('style')
 
 @show
