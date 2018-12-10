@@ -12,7 +12,7 @@
 @section('page-content')
     <div class="card bg-gradient-default shadow">
         <div class="card-body">
-            <form role="form" action="{{route('post.update',$post->id)}}" method="post">
+            <form role="form" action="{{route('post.update',$post->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
                 <h2 class="text-white">Titles</h2>

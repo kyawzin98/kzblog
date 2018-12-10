@@ -12,7 +12,7 @@
 @section('page-content')
     <div class="card bg-gradient-default shadow">
         <div class="card-body">
-            <form role="form" action="{{route('post.store')}}" method="post">
+            <form role="form" action="{{route('post.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <h2 class="text-white">Titles</h2>
                 @include('includes.message')

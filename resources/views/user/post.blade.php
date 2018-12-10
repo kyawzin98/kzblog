@@ -2,7 +2,7 @@
 @section('style')
     <link rel="stylesheet" href="{{asset('user/css/prism.css')}}">
 @endsection
-@section('bg-img',asset('user/img/post-bg.jpg'))
+@section('bg-img',Storage::disk('local')->url($post->image))
 @section('title',$post->title)
 @section('subheading',$post->subtitle)
 @section('main-content')

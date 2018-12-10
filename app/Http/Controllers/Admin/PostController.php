@@ -46,8 +46,17 @@ class PostController extends Controller
             'subtitle' => 'required',
             'slug' => 'required',
             'body' => 'required',
+            'image' => 'required'
         ]);
+
+        if ($request->hasFile('image')){
+            //Get original file name တျခားသုံးလုိ့ရတဲ့ funs ေတြကုိ UploadeFile.php ထဲမွၾကည့္နုိင္တယ္
+            //return $request->image->getClientOriginalName();
+            $imgName = $request->image->store('public');
+        }
+
         $post = new Post();
+        $post->image = $imgName;
         $post->title = $request->title;
         $post->subtitle = $request->subtitle;
         $post->slug = $request->slug;
@@ -100,8 +109,17 @@ class PostController extends Controller
             'subtitle' => 'required',
             'slug' => 'required',
             'body' => 'required',
+            'image' => 'required'
         ]);
+
+        if ($request->hasFile('image')){
+            //Get original file name တျခားသုံးလုိ့ရတဲ့ funs ေတြကုိ UploadeFile.php ထဲမွၾကည့္နုိင္တယ္
+            //return $request->image->getClientOriginalName();
+            $imgName = $request->image->store('public');
+        }
+
         $post = Post::find($id);
+        $post->image = $imgName;
         $post->title = $request->title;
         $post->subtitle = $request->subtitle;
         $post->slug = $request->slug;
