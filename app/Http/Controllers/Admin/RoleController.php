@@ -2,17 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Model\Admin\Admin;
 use App\Model\Admin\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class RoleController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:admin');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -20,8 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data['users']=Admin::all();
-        return view('admin.user.users_list',$data);
+        $data['roles']=Role::all();
+        return view('admin.role.roles_list')->with($data);
     }
 
     /**
@@ -31,8 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $data['roles']=Role::all();
-        return view('admin.user.create_user',$data);
+        return view('admin.role.create_role');
     }
 
     /**
@@ -43,7 +37,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        $this->validate($request,[
+           'name'=>'required|max:50|unique:roles'
+        ]);
+        $data=$request->except(['_token']);
+        Role::create($data);
+        return redirect(route('role.index'));
     }
 
     /**
@@ -65,7 +64,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['role']=Role::find($id);
+        return view('admin.role.edit_role')->with($data);
     }
 
     /**
@@ -77,7 +77,13 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required|max:50|unique:roles'
+        ]);
+        $data=$request->except(['_token']);
+        $role=Role::find($id);
+        $role->update($data);
+        return redirect(route('role.index'));
     }
 
     /**
@@ -88,6 +94,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Role::destroy($id);
+        return redirect()->back();
     }
 }

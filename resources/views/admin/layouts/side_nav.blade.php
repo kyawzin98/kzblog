@@ -122,6 +122,11 @@
                         <i class="ni ni-single-02 text-yellow"></i> Users
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('role.index')}}">
+                        <i class="ni ni-single-02 text-yellow"></i> Roles
+                    </a>
+                </li>
             </ul>
             <!-- Divider -->
             <hr class="my-3">
