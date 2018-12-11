@@ -26,6 +26,47 @@
                                 <input class="form-control" id="name" name="name" placeholder="Role Name" type="text">
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="">Post Permissions</label>
+                                @foreach($permissions as $permission)
+                                    @if($permission->permission_for == 'post')
+                                        <div class="form-check ml-3">
+                                            <label for="" class="form-check-label">
+                                                <input type="checkbox" value="{{$permission->id}}"
+                                                       class="form-check-input">{{$permission->name}}
+                                            </label>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                            <div class="col-md-4">
+                                <label for="">User Permissions</label>
+                                @foreach($permissions as $permission)
+                                    @if($permission->permission_for == 'user')
+                                        <div class="form-check ml-3">
+                                            <label for="" class="form-check-label">
+                                                <input type="checkbox" value="{{$permission->id}}"
+                                                       class="form-check-input">{{$permission->name}}
+                                            </label>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                            <div class="col-md-4">
+                                <label for="">User Permissions</label>
+                                @foreach($permissions as $permission)
+                                    @if($permission->permission_for == 'other')
+                                        <div class="form-check ml-3">
+                                            <label for="" class="form-check-label">
+                                                <input type="checkbox" value="{{$permission->id}}"
+                                                       class="form-check-input">{{$permission->name}}
+                                            </label>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
                         <div class="">
                             <button type="submit" class="btn btn-primary mt-4">Submit</button>
                             <a href="{{route('role.index')}}" class="btn btn-warning mt-4">Back</a>

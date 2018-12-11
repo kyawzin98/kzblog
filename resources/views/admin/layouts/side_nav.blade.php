@@ -127,6 +127,11 @@
                         <i class="ni ni-single-02 text-yellow"></i> Roles
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('permission.index')}}">
+                        <i class="ni ni-single-02 text-yellow"></i> Permission
+                    </a>
+                </li>
             </ul>
             <!-- Divider -->
             <hr class="my-3">

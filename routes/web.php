@@ -32,6 +32,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::resource('category', 'CategoryController');
     //Role Route
     Route::resource('role','RoleController');
+    //Permission Route
+    Route::resource('permission','PermissionController');
 
     //Admin Auth Routes
     Route::group(['namespace' => 'Auth'], function () {

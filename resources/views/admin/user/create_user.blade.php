@@ -62,7 +62,7 @@
                                     <div class="col-md-4">
                                         <label class="form-check-label">
                                             <input type="checkbox" class="form-check-input" name="name[]" id=""
-                                                   value="{{$role->id}}" checked>
+                                                   value="{{$role->id}}">
                                             {{$role->name}}
                                         </label>
                                     </div>

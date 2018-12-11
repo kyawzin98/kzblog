@@ -4,14 +4,14 @@
 @endsection
 @section('page-header')
     <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-9">
             <h2 class="display-3 text-white ml-5 shadow"
                 style="font-family: 'Monaco', Tahoma, Arial, Verdana, Sans-Serif ">
                 List of Tags
             </h2>
         </div>
-        <div class="col-md-2">
-            <a class="btn btn-success" href="{{route('tag.create')}}">
+        <div class="col-md-3">
+            <a class="btn btn-success float-right" href="{{route('tag.create')}}">
                 <i class="fa fa-plus"></i>&ensp;
                 New Tag
             </a>
