@@ -4,6 +4,11 @@
 @endsection
 @section('page-header')
     <div class="row">
+        <div class="col-md-12">
+            @include('includes.message')
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-9">
             <h2 class="display-3 text-white ml-5 shadow"
                 style="font-family: 'Monaco', Tahoma, Arial, Verdana, Sans-Serif ">
@@ -12,8 +17,7 @@
         </div>
         <div class="col-md-3">
             <a class="btn btn-success float-right" href="{{route('user.create')}}">
-                <i class="fa fa-plus"></i>&ensp;
-                New User
+                <i class="fa fa-2x fa-user-plus"></i>&ensp;
             </a>
         </div>
     </div>
@@ -25,6 +29,7 @@
             <tr>
                 <th>No</th>
                 <th>User Name</th>
+                <th>Assigned Roles</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -35,14 +40,19 @@
                     <td>{{$user->id}}</td>
                     <td>{{$user->name}}</td>
                     <td>
-                        <a href="{{route('tag.edit',$user->id)}}" class="btn btn-default shadow--hover"
+                        @foreach($user->roles as $role)
+                            <span class="badge badge-primary">{{$role->name}}</span>
+                        @endforeach
+                    </td>
+                    <td>
+                        <a href="{{route('user.edit',$user->id)}}" class="btn btn-default shadow--hover"
                            type="button">
                             <i class="fa fa-edit text-white"></i>
                         </a>
                     </td>
                     <td>
                         <form id="delete-tag-{{$user->id}}"
-                              action="{{route('tag.destroy',$user->id)}}" method="post" style="display: none;">
+                              action="{{route('user.destroy',$user->id)}}" method="post" style="display: none;">
                             @csrf
                             @method('DELETE')
                         </form>
@@ -61,6 +71,7 @@
             <tr>
                 <th>No</th>
                 <th>User Name</th>
+                <th>Assigned Roles</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -72,6 +83,11 @@
     <script>
         $(document).ready(function () {
             $('#example').DataTable();
+        });
+        $(document).ready(function () {
+            setTimeout(function () {
+                $(".alert").alert('close')
+            }, 2500);
         });
     </script>
 @endsection

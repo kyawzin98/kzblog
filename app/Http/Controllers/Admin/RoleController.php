@@ -9,6 +9,11 @@ use App\Http\Controllers\Controller;
 
 class RoleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -43,7 +48,8 @@ class RoleController extends Controller
            'name'=>'required|max:50|unique:roles'
         ]);
         $data=$request->except(['_token']);
-        Role::create($data);
+        $role= Role::create($data);
+        $role->permissions()->sync($request->permission);
         return redirect(route('role.index'));
     }
 

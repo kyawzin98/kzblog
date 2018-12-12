@@ -11,4 +11,8 @@ class Role extends Model
     public function permissions(){
         return $this->belongsToMany('App\Model\Admin\Permission');
     }
+
+    public function users(){
+        return $this->belongsToMany('App\Model\Admin\Admin');
+    }
 }

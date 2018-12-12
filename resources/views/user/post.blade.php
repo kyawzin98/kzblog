@@ -26,13 +26,13 @@
                     <br>
                     <br>
                     @foreach($post->categories as $category)
-                        <a href="{{route('category',$category->slug)}}"><small class="badge badge-primary p-2">{{$category->name}}</small></a>
+                        <a href="{{route('category',$category->slug)}}" class="badge badge-pill badge-dark p-2">{{$category->name}}</a>
                     @endforeach
                     {!! htmlspecialchars_decode($post->body) !!}
                     <!-- Tag Clouds -->
                     <h3>Tag Clouds</h3>
                     @foreach($post->tags as $tag)
-                        <a href="{{route('tag',$tag->slug)}}"><small class="badge badge-danger p-2">{{$tag->name}}</small></a>
+                        <a href="{{route('tag',$tag->slug)}}" class="badge badge-danger p-2">{{$tag->name}}</a>
                     @endforeach
                     <br>
                     <hr>

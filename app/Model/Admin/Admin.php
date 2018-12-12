@@ -10,11 +10,15 @@ class Admin extends Authenticatable
 {
     use Notifiable;
 
-//    protected $fillable = [
-//        'name', 'email', 'password',
-//    ];
-//
-//    protected $hidden = [
-//        'password', 'remember_token',
-//    ];
+    protected $fillable = [
+        'name', 'email', 'password','phone','status'
+    ];
+
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+    public function roles(){
+        return $this->belongsToMany('App\Model\Admin\Role');
+    }
 }

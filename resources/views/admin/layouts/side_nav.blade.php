@@ -7,8 +7,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Brand -->
-        <a class="navbar-brand pt-0" href="./index.html">
-{{--            <img src="{{asset('admin/assets/img/brand/blue.png')}}" class="navbar-brand-img" alt="...">--}}
+        <a class="navbar-brand pt-0" href="{{route('admin.home')}}">
+            {{--            <img src="{{asset('admin/assets/img/brand/blue.png')}}" class="navbar-brand-img" alt="...">--}}
             <b class="text-primary display-4">KZ Blog</b>
         </a>
         <!-- User -->
@@ -30,9 +30,9 @@
                 <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                    aria-expanded="false">
                     <div class="media align-items-center">
-              <span class="avatar avatar-sm rounded-circle">
-                <img alt="Image placeholder" src="{{asset('admin/assets/img/theme/team-1-800x800.jpg')}}">
-              </span>
+                        <span class="avatar avatar-sm rounded-circle">
+                            <img alt="Image placeholder" src="{{asset('admin/assets/img/theme/team-1-800x800.jpg')}}">
+                        </span>
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
@@ -99,37 +99,37 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('admin.home')}}">
-                        <i class="ni ni-tv-2 text-primary"></i> Dashboard
+                        <i class="fa fa-tv text-primary"></i> Dashboard
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('post.index')}}">
-                        <i class="ni ni-planet text-blue"></i> Posts
+                        <i class="fa fa-file text-success"></i> Posts
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('category.index')}}">
-                        <i class="ni ni-pin-3 text-orange"></i> Categories
+                        <i class="fa fa-list text-orange"></i> Categories
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('tag.index')}}">
-                        <i class="ni ni-single-02 text-yellow"></i> Tags
+                        <i class="fa fa-tags text-yellow"></i> Tags
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('user.index')}}">
-                        <i class="ni ni-single-02 text-yellow"></i> Users
+                        <i class="fa fa-users text-purple"></i> Users
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('role.index')}}">
-                        <i class="ni ni-single-02 text-yellow"></i> Roles
+                        <i class="fa fa-user-shield text-danger"></i> Roles
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('permission.index')}}">
-                        <i class="ni ni-single-02 text-yellow"></i> Permission
+                        <i class="fa fa-user-alt-slash text-indigo"></i> Permission
                     </a>
                 </li>
             </ul>

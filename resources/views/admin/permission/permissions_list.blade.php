@@ -40,7 +40,7 @@
             <tr>
                 <td>{{$permission->id}}</td>
                 <td>{{$permission->name}}</td>
-                <td>{{$permission->permission_for}}</td>
+                <td>{{$permission->permission_for }}</td>
                 <td>
                     <a href="{{route('permission.edit',$permission->id)}}" class="btn btn-default shadow--hover"
                        type="button">
