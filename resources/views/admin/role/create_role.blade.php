@@ -33,7 +33,7 @@
                                     @if($permission->permission_for == 'post')
                                         <div class="form-check ml-3">
                                             <label for="" class="form-check-label">
-                                                <input type="checkbox" value="{{$permission->id}}"
+                                                <input type="checkbox" name="permission[]" value="{{$permission->id}}"
                                                        class="form-check-input">{{$permission->name}}
                                             </label>
                                         </div>
@@ -46,7 +46,7 @@
                                     @if($permission->permission_for == 'user')
                                         <div class="form-check ml-3">
                                             <label for="" class="form-check-label">
-                                                <input type="checkbox" value="{{$permission->id}}"
+                                                <input type="checkbox" name="permission[]" value="{{$permission->id}}"
                                                        class="form-check-input">{{$permission->name}}
                                             </label>
                                         </div>
@@ -54,12 +54,12 @@
                                 @endforeach
                             </div>
                             <div class="col-md-4">
-                                <label for="">User Permissions</label>
+                                <label for="">Other Permissions</label>
                                 @foreach($permissions as $permission)
                                     @if($permission->permission_for == 'other')
                                         <div class="form-check ml-3">
                                             <label for="" class="form-check-label">
-                                                <input type="checkbox" value="{{$permission->id}}"
+                                                <input type="checkbox" name="permission[]" value="{{$permission->id}}"
                                                        class="form-check-input">{{$permission->name}}
                                             </label>
                                         </div>

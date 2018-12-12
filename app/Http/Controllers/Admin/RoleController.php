@@ -67,6 +67,7 @@ class RoleController extends Controller
     public function edit($id)
     {
         $data['role']=Role::find($id);
+        $data['permissions']=Permission::all();
         return view('admin.role.edit_role')->with($data);
     }
 
@@ -80,11 +81,13 @@ class RoleController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'name'=>'required|max:50|unique:roles'
+            'name'=>'required|max:50'
         ]);
         $data=$request->except(['_token']);
         $role=Role::find($id);
         $role->update($data);
+        $role->permissions()->sync($request->permission);
+
         return redirect(route('role.index'));
     }
 
