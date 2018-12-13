@@ -46,17 +46,15 @@
                             </div>
                         </div>
                         <div class="form-check">
-                            <label for="status" class="text-primary">Status</label>
+                            <label for="" class="text-primary">Status</label>
                             <div class="input-group input-group-alternative mb-3">
                                 <label class="form-check-label">
                                     <input type="checkbox" class="form-check-input" name="status" id=""
-                                           @if(old('status')==1 || $user->status==1) checked @endif value="{{$user->status}}">
+                                           @if(old('status')==1 || $user->status==1) checked @endif value="1">
                                     Status
                                 </label>
                             </div>
                         </div>
-
-
                         <div class="form-check">
                             <label for="role" class="text-primary">Assign Role</label>
                             <div class="row">

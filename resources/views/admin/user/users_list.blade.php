@@ -30,6 +30,7 @@
                 <th>No</th>
                 <th>User Name</th>
                 <th>Assigned Roles</th>
+                <th>Status</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -43,6 +44,13 @@
                         @foreach($user->roles as $role)
                             <span class="badge badge-primary">{{$role->name}}</span>
                         @endforeach
+                    </td>
+                    <td>
+                        @if($user->status == 1)
+                            <span class="badge badge-success">Active</span>
+                        @else
+                            <span class="badge badge-danger">Not Active</span>
+                        @endif
                     </td>
                     <td>
                         <a href="{{route('user.edit',$user->id)}}" class="btn btn-default shadow--hover"
@@ -72,6 +80,7 @@
                 <th>No</th>
                 <th>User Name</th>
                 <th>Assigned Roles</th>
+                <th>Status</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>

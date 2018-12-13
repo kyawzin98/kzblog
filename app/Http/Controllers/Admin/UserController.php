@@ -52,6 +52,7 @@ class UserController extends Controller
             'password' => 'required|string|min:6|confirmed',
 
         ]);
+        $request->status? : $request['status'] = 0;
         $request['password']=bcrypt($request->password);
         $user = Admin::create($request->except(['_token']));
         $user->roles()->sync($request->role);
@@ -96,6 +97,7 @@ class UserController extends Controller
             'email' => 'required|string|email|max:191',
             'phone' => 'required|numeric'
         ]);
+        $request->status ? : $request['status'] = 0;
         $user=Admin::find($id);
         $user->update($request->except(['_token','_method']));
         $user->roles()->sync($request->role);
