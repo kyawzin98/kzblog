@@ -31,9 +31,9 @@
                             <label for="permission_for">Permission For</label>
                             <select name="permission_for" id="permission_for" class="form-control">
                                 <option selected disabled="disabled">Select Permission For</option>
-                                <option value="user">User</option>
-                                <option value="post">Post</option>
-                                <option value="other">Other</option>
+                                <option @if($permission->permission_for == 'user') selected @endif value="user">User</option>
+                                <option @if($permission->permission_for == 'post') selected @endif value="post">Post</option>
+                                <option @if($permission->permission_for == 'other') selected @endif value="other">Other</option>
                             </select>
                         </div>
                         <div class="">

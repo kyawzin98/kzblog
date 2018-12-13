@@ -16,9 +16,11 @@
             </h2>
         </div>
         <div class="col-md-3">
-            <a class="btn btn-success float-right" href="{{route('user.create')}}">
-                <i class="fa fa-2x fa-user-plus"></i>&ensp;
-            </a>
+            @can('user.create',Auth::user())
+                <a class="btn btn-success float-right" href="{{route('user.create')}}">
+                    <i class="fa fa-2x fa-user-plus"></i>&ensp;
+                </a>
+            @endcan
         </div>
     </div>
 @endsection
@@ -31,8 +33,12 @@
                 <th>User Name</th>
                 <th>Assigned Roles</th>
                 <th>Status</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                @can('users.update',Auth::user())
+                    <th>Edit</th>
+                @endcan
+                @can('users.delete',Auth::user())
+                    <th>Delete</th>
+                @endcan
             </tr>
             </thead>
             <tbody>
@@ -52,26 +58,30 @@
                             <span class="badge badge-danger">Not Active</span>
                         @endif
                     </td>
-                    <td>
-                        <a href="{{route('user.edit',$user->id)}}" class="btn btn-default shadow--hover"
-                           type="button">
-                            <i class="fa fa-edit text-white"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <form id="delete-tag-{{$user->id}}"
-                              action="{{route('user.destroy',$user->id)}}" method="post" style="display: none;">
-                            @csrf
-                            @method('DELETE')
-                        </form>
-                        <a href="javascript:" class="btn btn-danger shadow--hover"
-                           onclick="if (confirm('Are you sure? You want to delete this!')){
-                                   event.preventDefault();
-                                   document.getElementById('delete-tag-{{$user->id}}').submit();
-                                   }else {event.preventDefault();}">
-                            <i class="fa fa-trash-alt text-white"></i>
-                        </a>
-                    </td>
+                    @can('users.update',Auth::user())
+                        <td>
+                            <a href="{{route('user.edit',$user->id)}}" class="btn btn-default shadow--hover"
+                               type="button">
+                                <i class="fa fa-edit text-white"></i>
+                            </a>
+                        </td>
+                    @endcan
+                    @can('users.delete',Auth::user())
+                        <td>
+                            <form id="delete-tag-{{$user->id}}"
+                                  action="{{route('user.destroy',$user->id)}}" method="post" style="display: none;">
+                                @csrf
+                                @method('DELETE')
+                            </form>
+                            <a href="javascript:" class="btn btn-danger shadow--hover"
+                               onclick="if (confirm('Are you sure? You want to delete this!')){
+                                       event.preventDefault();
+                                       document.getElementById('delete-tag-{{$user->id}}').submit();
+                                       }else {event.preventDefault();}">
+                                <i class="fa fa-trash-alt text-white"></i>
+                            </a>
+                        </td>
+                    @endcan
                 </tr>
             @endforeach
             </tbody>
@@ -81,8 +91,12 @@
                 <th>User Name</th>
                 <th>Assigned Roles</th>
                 <th>Status</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                @can('users.update',Auth::user())
+                    <th>Edit</th>
+                @endcan
+                @can('users.delete',Auth::user())
+                    <th>Delete</th>
+                @endcan
             </tr>
             </tfoot>
         </table>

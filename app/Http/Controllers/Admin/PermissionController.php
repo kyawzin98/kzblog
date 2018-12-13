@@ -11,6 +11,7 @@ class PermissionController extends Controller
     public function __construct()
     {
         $this->middleware('auth:admin');
+        $this->middleware('can:users.permissions');
     }
     /**
      * Display a listing of the resource.
@@ -84,7 +85,7 @@ class PermissionController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' => 'required|max:50|unique:permissions',
+            'name' => 'required|max:50',
             'permission_for' => 'required'
 
         ]);

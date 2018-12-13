@@ -107,31 +107,39 @@
                         <i class="fa fa-file text-success"></i> Posts
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('category.index')}}">
-                        <i class="fa fa-list text-orange"></i> Categories
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('tag.index')}}">
-                        <i class="fa fa-tags text-yellow"></i> Tags
-                    </a>
-                </li>
+                @can('posts.category',Auth::user())
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('category.index')}}">
+                            <i class="fa fa-list text-orange"></i> Categories
+                        </a>
+                    </li>
+                @endcan
+                @can('posts.tag',Auth::user())
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('tag.index')}}">
+                            <i class="fa fa-tags text-yellow"></i> Tags
+                        </a>
+                    </li>
+                @endcan
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('user.index')}}">
                         <i class="fa fa-users text-purple"></i> Users
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('role.index')}}">
-                        <i class="fa fa-user-shield text-danger"></i> Roles
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('permission.index')}}">
-                        <i class="fa fa-user-alt-slash text-indigo"></i> Permission
-                    </a>
-                </li>
+                @can('users.roles',Auth::user())
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('role.index')}}">
+                            <i class="fa fa-user-shield text-danger"></i> Roles
+                        </a>
+                    </li>
+                @endcan
+                @can('users.permissions',Auth::user())
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('permission.index')}}">
+                            <i class="fa fa-user-alt-slash text-indigo"></i> Permission
+                        </a>
+                    </li>
+                @endcan
             </ul>
             <!-- Divider -->
             <hr class="my-3">
