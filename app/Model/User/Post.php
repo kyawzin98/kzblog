@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Model\User;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -18,5 +19,18 @@ class Post extends Model
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    //Accessers
+    public function getCreatedAtAttribute($value){
+        return Carbon::parse($value)->diffForHumans();
+    }
+
+    public function getSlugAttribute($value){
+        return route('post',$value);
+    }
+
+    public function likes(){
+        return $this->hasMany('App\Model\User\Like');
     }
 }
